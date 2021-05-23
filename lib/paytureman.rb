@@ -3,7 +3,7 @@ require 'active_support/core_ext/string/inflections'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/hash/keys'
 require 'rexml/document'
-require 'rest_client'
+require 'rest-client'
 require 'singleton'
 
 require_relative 'payture/api'
