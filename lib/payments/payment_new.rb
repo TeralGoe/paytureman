@@ -5,7 +5,8 @@ module Paytureman
     :language,
     :url,
     :total,
-    :product
+    :product,
+    :cheque
   ]
 
   class PaymentDescription
