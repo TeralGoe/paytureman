@@ -13,7 +13,8 @@ module Paytureman
       data = { SessionType: :Pay, OrderId: order_id, Amount: amount, IP: ip }
       data.merge!(description)
       init_params = {
-          'Data' => CGI.escape(data).gsub("+", "%20")
+          'Data' => CGI.escape(data.map { |k, v| "#{k.to_s.camelize}=#{v}" }.join(';')).gsub("+", "%20") 
+          # CGI.escape(data.map).gsub("+", "%20")
       }
 
       response = make_request(:init, init_params)
