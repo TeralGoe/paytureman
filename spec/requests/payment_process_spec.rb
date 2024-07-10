@@ -74,7 +74,7 @@ describe "Payment" do
     expect(RestClient).to receive(:post).with(
       init_payment_url,
       {
-          "Data" => "SessionType=Block;OrderId=#{order_id};Amount=#{(amount*100).to_i};IP=#{ip};Product=#{URI.encode_www_form(product)};Total=#{total};Url=http://localhost:3000/?foo=bar",
+          "Data" => "SessionType=Pay;OrderId=#{order_id};Amount=#{(amount*100).to_i};IP=#{ip};Product=#{CGI.escapeElement(product).gsub("+", "%20")};Total=#{total};Url=http://localhost:3000/?foo=bar",
           "Key" => "MerchantRutravel"
       }
     ).and_return(empty_response)
@@ -101,7 +101,7 @@ describe "Payment" do
     expect(RestClient).to receive(:post).with(
         init_payment_url,
         {
-            "Data" => "SessionType=Block;OrderId=#{order_id};Amount=#{(amount*100).to_i};IP=#{ip}",
+            "Data" => "SessionType=Pay;OrderId=#{order_id};Amount=#{(amount*100).to_i};IP=#{ip}",
             "Key" => "MerchantRutravel"
         }
     ).and_return(empty_response)
