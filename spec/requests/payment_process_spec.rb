@@ -74,7 +74,7 @@ describe "Payment" do
     expect(RestClient).to receive(:post).with(
       init_payment_url,
       {
-          "Data" => "SessionType=Block;OrderId=#{order_id};Amount=#{(amount*100).to_i};IP=#{ip};Product=#{CGI.unescapeURIComponent(product)};Total=#{total};Url=http://localhost:3000/?foo=bar",
+          "Data" => "SessionType=Block;OrderId=#{order_id};Amount=#{(amount*100).to_i};IP=#{ip};Product=#{CGI.escapeURIComponent(product)};Total=#{total};Url=http://localhost:3000/?foo=bar",
           "Key" => "MerchantRutravel"
       }
     ).and_return(empty_response)
