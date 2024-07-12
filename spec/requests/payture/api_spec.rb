@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Api do
 
   let(:empty_response) { double('Request', body: '<xml />') }
-  let(:host) { 'secure' }
+  let(:host) { 'sandbox' }
   let(:key) { 'merchant' }
   let(:password) { 'password' }
 
