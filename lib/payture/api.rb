@@ -77,7 +77,7 @@ module Paytureman
     end
 
     def url_for(method)
-      "https://#@host.payture.com/apim/#{method.to_s.camelize}"
+      "https://#{@host}.payture.com/apim/#{method.to_s.camelize}"
     end
 
   end
