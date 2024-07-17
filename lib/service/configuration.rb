@@ -41,8 +41,12 @@ module Paytureman
     attr_accessor :host, :key, :password
 
     def initialize
-      @host = 'sandbox'
-      @key = 'MerchantRutravel'
+      # @host = 'sandbox'
+      # @key = 'MerchantRutravel'
+      # @password = '123'
+
+      @host = 'sandbox3'
+      @key = 'MerchantBassePro'
       @password = '123'
     end
   end
