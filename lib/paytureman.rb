@@ -5,6 +5,7 @@ require 'active_support/core_ext/hash/keys'
 require 'rexml/document'
 require 'rest-client'
 require 'singleton'
+require 'cgi'
 
 require_relative 'payture/api'
 
