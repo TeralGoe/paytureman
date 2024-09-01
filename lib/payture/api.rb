@@ -13,7 +13,7 @@ module Paytureman
       data = { SessionType: :Pay, OrderId: order_id, Amount: amount, IP: ip }
       data.merge!(description)
       init_params = {
-          'Data' => URI.escape(data.map { |k, v| "#{k.to_s.camelize}=#{v}" }.join(';'))
+          'Data' => CGI.escapeElement(data.map { |k, v| "#{k.to_s.camelize}=#{v}" }.join(';')).gsub("+", "%20")
       }
 
       response = make_request(:init, init_params)
@@ -77,7 +77,7 @@ module Paytureman
     end
 
     def url_for(method)
-      "https://#@host.payture.com/apim/#{method.to_s.camelize}"
+      "https://#{@host}.payture.com/apim/#{method.to_s.camelize}"
     end
 
   end
